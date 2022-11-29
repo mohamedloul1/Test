@@ -1,0 +1,102 @@
+﻿@page "{searchString?}"
+@model ContosoPizaa.Pages.Products.CustomersModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<h1>Index</h1>
+
+<form>
+    <p>
+        <select asp-for="CustomerFirstName" asp-items="Model.FirstName">
+            <option value="" class="form-check-input">All</option>
+         
+
+         
+        </select>
+
+        
+
+        Title: <input type="text" asp-for="SearchString" />
+        <input  type="submit" value="Filter" />
+
+
+    </p>
+</form>
+
+<form>
+    <select asp-for="CustomerAdrs" asp-items="Model.Addres">
+        <option value="">All</option>
+    </select>
+    <input type="submit" value="Filter" />
+
+
+</form>
+
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Orders
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                FirstName
+            </th>
+             <th>
+                Addres
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Orders)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+
+                </td>
+  
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+
+
+

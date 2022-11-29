@@ -1,0 +1,62 @@
+﻿@page "{searchString?}"
+@model ContosoPizaa.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form>
+    <p>
+        <select asp-for="ProductName" asp-items="Model.Price">
+            <option value="">All</option>
+        </select>
+
+        Title: <input type="text" asp-for="SearchString" />
+        <input  type="submit" value="Filter" />
+
+    </p>
+</form>
+
+<form>
+
+</form>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+
+                </td>
+  
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+
+
+

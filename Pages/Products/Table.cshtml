@@ -1,0 +1,35 @@
+﻿@page
+@model ContosoPizaa.Pages.Products.TableModel
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+
+
+<h1 class="text-center"> Table </h1>
+
+
+<div class="text-center">
+<table class="table caption-top">
+    <caption>List of Products</caption>
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var p in Model.Product)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+
